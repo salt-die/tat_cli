@@ -1,5 +1,5 @@
 # tat_cli
-A command-line tool to colorize terminal output with regex. 
+A command-line tool to colorize terminal output with regex. `pip install tat-cli` to install.
 
 Each group in the regex will be colored independently. `tat-cli` supports nested groups and 24-bit colors.
 

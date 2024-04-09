@@ -47,12 +47,15 @@ def tat(pattern: str, colors: list[str] | None = None) -> None:
     Parameters
     ----------
     pattern : str
-        Regex pattern used on stdin.
+        Regex pattern used on stdin. Only groups in the regex are colored. If a regex
+        pattern has no groups, the whole match will be treated as a group.
     colors : list[str] | None, default: None
         Color or color-pair for each group in the regex pattern. If none or too few are
         provided, rainbow colors are used.
     """
     regex = re.compile(pattern)
+    if regex.groups == 0:
+        regex = re.compile(f"({pattern})")
 
     if colors is None or len(colors) < regex.groups:
         colors = _rainbow_gradient(regex.groups)

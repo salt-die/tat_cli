@@ -9,7 +9,13 @@ def tat_cli() -> None:
     """Parse command-line arguments for `tat`."""
     parser = argparse.ArgumentParser(description="Colorize terminal output with regex.")
     parser.add_argument(
-        "pattern", metavar="REGEX", help="A regex pattern to be used on output."
+        "pattern",
+        metavar="REGEX",
+        help=(
+            "A regex pattern to be used on output. Only groups in the regex are "
+            "colored. If a regex pattern has no groups, the whole match will be "
+            "treated as a group."
+        ),
     )
     parser.add_argument(
         "colors",
